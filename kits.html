@@ -1,0 +1,118 @@
+<!-- ...existing code... -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Steam Kits Collection</title>
+  <link rel="stylesheet" href="kits.css">
+</head>
+<body>
+  <header class="site-header">
+    <button id="menu-btn" title="Menu" aria-label="Menu">⋮</button>
+    <h1 class="brand">STEAM KITS COLLECTION 💘</h1>
+    <div class="header-actions">
+      <input id="search-input" placeholder="Search products…" aria-label="Search products" />
+      <button id="view-cart-btn" title="View cart" aria-label="View cart">Cart (<span id="cart-count">0</span>)</button>
+      <button id="login-btn">Login</button>
+      <span id="user-display" aria-live="polite"></span>
+    </div>
+  </header>
+
+  <nav id="side-menu" class="side-menu hidden" aria-hidden="true">
+    <button id="side-close" class="side-close" aria-label="Close menu">×</button>
+    <ul>
+      <li><button class="side-action" data-action="open-products">Steam Kits Collection</button></li>
+      <li><button class="side-action" data-action="open-orders">Orders</button></li>
+      <li><button class="side-action" data-action="open-login">Login</button></li>
+      <li><button class="side-action" data-action="open-cart">Cart</button></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="home" class="panel">
+      <div class="home-inner">
+        <h2>Welcome to our STEAM Kits collection🥰</h2>
+        <p>Explore curated kits and components for building — microcontrollers, sensors, motors, prototyping supplies and more.</p>
+        <p>Browse products, view details, and add items to your cart. Use the menu (⋮) for quick navigation.</p>
+        <button class="side-action" data-action="open-products">Browse Products</button>
+      </div>
+    </section>
+
+    <!-- products: single section with a single products grid element -->
+    <section id="products-section" class="panel">
+      <h2>Products</h2>
+      <div id="products" class="products-grid" aria-live="polite"></div>
+    </section>
+
+    <section id="impact" class="panel">
+      <h2>Impact — Featured Project</h2>
+      <article>
+        <h3>Project: Community STEM Hub</h3>
+        <p>Our first impact project brings kits and workshops to local schools. Support with purchases. 🎭</p>
+      </article>
+    </section>
+
+    <section id="orders" class="panel hidden">
+      <h2>Your Recent Orders</h2>
+      <div id="orders-list"></div>
+    </section>
+  </main>
+
+  <!-- Cart panel -->
+  <aside id="cart" class="panel drawer hidden" aria-hidden="true">
+    <button id="close-cart-btn" class="close" aria-label="Close cart">Close</button>
+    <h3>Your Cart</h3>
+    <ul id="cart-items"></ul>
+    <div class="cart-summary">
+      <div>Subtotal: <span id="subtotal">₦0.00</span></div>
+      <div>Delivery: <span id="delivery-fee">₦0.00</span></div>
+      <div>Total: <strong id="total">₦0.00</strong></div>
+    </div>
+    <button id="checkout-btn">Checkout</button>
+  </aside>
+
+  <!-- Login modal -->
+  <div id="login-modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content">
+      <button id="close-login" class="close" aria-label="Close login">×</button>
+      <form id="login-form">
+        <h3>Login / Register</h3>
+        <input name="name" placeholder="Your name" required />
+        <input name="contact" placeholder="Phone or email" />
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Checkout modal -->
+  <div id="checkout" class="modal hidden" aria-hidden="true">
+    <div class="modal-content">
+      <button id="cancel-checkout" class="close" aria-label="Cancel checkout">×</button>
+      <form id="checkout-form">
+        <h3>Checkout</h3>
+        <input name="name" placeholder="Full name" required />
+        <input name="phone" placeholder="Phone" required />
+        <input name="address" placeholder="Address" required />
+        <input name="city" placeholder="City" />
+        <label>Delivery
+          <select id="delivery-select" name="delivery">
+            <option value="pickup" data-fee="0">Pickup (Free)</option>
+            <option value="local" data-fee="500">Local delivery (₦500)</option>
+            <option value="express" data-fee="1500">Express (₦1,500)</option>
+          </select>
+        </label>
+        <div class="summary">
+          <div>Subtotal: <span id="summary-sub">₦0.00</span></div>
+          <div>Delivery: <span id="summary-del">₦0.00</span></div>
+          <div>Total: <strong id="summary-total">₦0.00</strong></div>
+        </div>
+        <button type="submit">Place order</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="steammm.js" defer></script>
+</body>
+</html>
+<!-- ...existing code... -->
